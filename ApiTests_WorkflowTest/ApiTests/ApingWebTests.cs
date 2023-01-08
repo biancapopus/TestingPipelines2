@@ -73,7 +73,8 @@ namespace ApiTests
         {
             var articlesResult = await apingWeb.GetArticleAsync(Token);
             Assert.True(articlesResult.Success);
-            Assert.Equal("No result", articlesResult.Message);
+            var articleResultMessage = articlesResult.Message;
+            Assert.Equal("No result", articleResultMessage);
             Assert.Empty(articlesResult.Articles);
             Assert.Empty(articlesResult.Errors);
             Assert.Equal(200, articlesResult.Status);
