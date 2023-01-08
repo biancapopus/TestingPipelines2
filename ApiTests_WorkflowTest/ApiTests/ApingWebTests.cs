@@ -17,7 +17,7 @@ namespace ApiTests
     {
         readonly IApingWeb apingWeb = RestService.For<IApingWeb>("https://apingweb.com/api");
 
-        Dictionary<string,object> UserInfo => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build().Get<Dictionary<string, object>>();
+        IConfiguration UserInfo => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build();
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
@@ -34,12 +34,12 @@ namespace ApiTests
 
         string Token => GetToken();
 
-        [Fact (Skip = "already registered")]
-        public async Task CanRegister()
-        {
-            var registerResponse = await apingWeb.RegisterAsync(UserInfo);
-            Assert.Equal(HttpStatusCode.OK, registerResponse.StatusCode);
-        }
+        //[Fact (Skip = "already registered")]
+        //public async Task CanRegister()
+        //{
+        //    var registerResponse = await apingWeb.RegisterAsync(UserInfo);
+        //    Assert.Equal(HttpStatusCode.OK, registerResponse.StatusCode);
+        //}
 
         [Fact]
         public async Task CanLogin()
