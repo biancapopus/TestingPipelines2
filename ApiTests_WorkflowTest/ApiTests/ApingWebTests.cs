@@ -21,8 +21,8 @@ namespace ApiTests
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
-            { "email", Environment.GetEnvironmentVariable("email") },
-            { "password", Environment.GetEnvironmentVariable("password") }
+            { "email", UserInfo["email"] },
+            { "password", UserInfo["password"] }
         };
 
         Article article = new Article()
