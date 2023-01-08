@@ -19,12 +19,15 @@ namespace ApiTests
 
         IConfiguration UserInfo => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build();
         string Email => GetEmail();
+
+        string EMAIL => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build()["EMAIL"];
+        string PASSWORD => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build()["PASSWORD"];
         string Password => GetPassword();
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
-            { "email", Email },
-            { "password", Password }
+            { "email", EMAIL },
+            { "password", PASSWORD }
         };
 
         Article article = new Article()
