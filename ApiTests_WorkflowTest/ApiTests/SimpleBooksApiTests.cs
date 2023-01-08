@@ -13,20 +13,20 @@ namespace ApiTests
         {
             AuthorizationHeaderValueGetter = () =>
             {
-                return Task.FromResult("42e94e0f99efe02a8181930a30fbe83970a6601d3ad9dea8b660fb0c3370c28a");
+                return Task.FromResult("1501fc7a572005e6acff84a9bdbec4a7c3d53e66504cb6a4499885f49a42b5a0");
             }
         });
 
         ISimpleBooksApi simpleBooksApi = RestService.For<ISimpleBooksApi>("https://simple-books-api.glitch.me");
         object orderId;
 
-        [Fact (Skip = "already registered")]
+        [Fact (Skip = "Already registered")]
         public async Task RegisterClient()
         {
             Dictionary<string, string> clientInfo = new Dictionary<string, string>()
             {
-                { "clientName", "Maria" },
-                { "clientEmail", "maria@example.com" }
+                { "clientName", "Gabriela" },
+                { "clientEmail", "gabriela@example.com" }
             };
 
             var token = await simpleBooksApiWithToken.RegisterAsync(clientInfo);
@@ -53,7 +53,7 @@ namespace ApiTests
                 { "customerName", "Ana" }
             };
 
-            var order = await simpleBooksApi.PostBookOrderAsync(orderContent, "42e94e0f99efe02a8181930a30fbe83970a6601d3ad9dea8b660fb0c3370c28a");
+            var order = await simpleBooksApi.PostBookOrderAsync(orderContent, "1501fc7a572005e6acff84a9bdbec4a7c3d53e66504cb6a4499885f49a42b5a0");
         }
 
         [Fact]
