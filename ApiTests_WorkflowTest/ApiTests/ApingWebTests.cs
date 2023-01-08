@@ -18,11 +18,13 @@ namespace ApiTests
         readonly IApingWeb apingWeb = RestService.For<IApingWeb>("https://apingweb.com/api");
 
         IConfiguration UserInfo => new ConfigurationBuilder().AddUserSecrets<ApingWebTests>().Build();
+        string Email => GetEmail();
+        string Password => GetPassword();
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
-            { "email", UserInfo["EMAIL"] },
-            { "password", UserInfo["PASSWORD"] }
+            { "email", Email },
+            { "password", Password }
         };
 
         Article article = new Article()
@@ -103,6 +105,16 @@ namespace ApiTests
         string GetToken()
         {
             return Login().Result["token"].ToString();
+        }
+
+        string GetEmail()
+        {
+            return UserInfo["EMAIL"];
+        }
+
+        string GetPassword()
+        {
+            return UserInfo["PASSWORD"];
         }
     }
 }
