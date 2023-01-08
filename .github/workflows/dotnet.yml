@@ -21,11 +21,11 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Test
+      run: dotnet test
       env:
         email: ${{ secrets.EMAIL }}
         name: ${{ secrets.NAME }}
         password: ${{ secrets.PASSWORD }}
         password_confirmation: ${{ secrets.PASSWORD_CONFIRMATION }}
         phone: ${{ secrets.PHONE }}
-      run: dotnet test
       working-directory: ApiTests_WorkflowTest
