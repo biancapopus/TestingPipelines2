@@ -21,8 +21,8 @@ namespace ApiTests
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
-            { "email", UserInfo["email"] },
-            { "password", UserInfo["password"] }
+            { "email", UserInfo["EMAIL"] },
+            { "password", UserInfo["PASSWORD"] }
         };
 
         Article article = new Article()
