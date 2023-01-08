@@ -24,6 +24,6 @@ jobs:
     - name: Test
       run: dotnet test
       env:
-        email: ${{ secrets.EMAIL }}
-        password: ${{ secrets.PASSWORD }}
+        EMAIL: ${{ secrets.EMAIL }}
+        PASSWORD: ${{ secrets.PASSWORD }}
       working-directory: ApiTests_WorkflowTest
