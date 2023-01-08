@@ -23,8 +23,8 @@ namespace ApiTests
 
         Dictionary<string, object> LoginUserInfo => new ()
         {
-            { "email", email },
-            { "password", password }
+            { "email", UserInfo.GetValue<string>("email") },
+            { "password", UserInfo.GetValue<string>("password") }
         };
 
         Article article = new Article()
